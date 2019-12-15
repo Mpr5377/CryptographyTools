@@ -20,15 +20,20 @@ def square_and_multiply(base, exponent, modulo):
     step_counter = 2
     # 1 - Square and Multiply
     # 0 - Square only
-    pretty_print()
+    print("+----------+----------+-----------+----------+")
+    print("|   Step   |  Binary  |    SQR    |   MULT   |")
+    print("+----------+----------+-----------+----------+")
+    print("\t 1\t\t\t1\t\t\t-\t\t " + str(base))
+
     for step in binary_exponent:
         if step == '1':
-            value = multiply(square(value), base)
+            value = multiply(square(value), base) % modulo
+            print("\t " + str(step_counter) + "\t\t\t1\t\t\t" + str(value) + "^2 mod " + str(modulo) + " = " + str(value) + "\t\t " + str(base))
         else:
-            value = square(value)
-        value = value % modulo
+            value = square(value) % modulo
+            print("\t " + str(step_counter) + "\t\t\t0\t\t\t-\t\t " + str(base))
         step_counter += 1
-    print(value)
+    print("\nFinal Value: " + str(value))
 
 
 def pretty_print():
