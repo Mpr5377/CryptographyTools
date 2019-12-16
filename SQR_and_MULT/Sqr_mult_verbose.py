@@ -43,10 +43,6 @@ def square_and_multiply(base, exponent, modulo):
     print("\nFinal Value: " + str(value))
 
 
-def pretty_print():
-    pass
-
-
 def convert_to_binary(exponent):
     """
     Function: convert_to_binary
