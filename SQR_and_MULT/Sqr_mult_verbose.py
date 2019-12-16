@@ -15,23 +15,30 @@ def square_and_multiply(base, exponent, modulo):
     :param modulo: The modulo for reduction
     :return: None
     """
+    print("Base: ", base)
+    print("Exponent: ", exponent)
+    print("Modulo: ", modulo)
     binary_exponent = convert_to_binary(exponent)
+    print("Exponent to Binary: ", "1" + str(binary_exponent))
     value = base
     step_counter = 2
     # 1 - Square and Multiply
     # 0 - Square only
-    print("+----------+----------+-----------+----------+")
-    print("|   Step   |  Binary  |    SQR    |   MULT   |")
-    print("+----------+----------+-----------+----------+")
-    print("\t 1\t\t\t1\t\t\t-\t\t " + str(base))
+    print("+----------+----------+------------------------+----------------------+")
+    print("|   Step   |  Binary  |          SQR           |         MULT         |")
+    print("+----------+----------+------------------------+----------------------+")
+    print("\t 1\t\t\t1\t\t\t\t  -\t\t\t\t\t\t  " + str(base))
 
     for step in binary_exponent:
         if step == '1':
-            value = multiply(square(value), base) % modulo
-            print("\t " + str(step_counter) + "\t\t\t1\t\t\t" + str(value) + "^2 mod " + str(modulo) + " = " + str(value) + "\t\t " + str(base))
+            v = value
+            sqr = square(value)
+            value = multiply(sqr, base) % modulo
+            print("\t " + str(step_counter) + "\t\t\t1\t\t" + str(v) + "^2 mod " + str(modulo) + " = " + str(sqr) + "\t\t  (" + str(sqr) + " * " + str(base) + ") mod " + str(modulo) + " = " + str(value))
         else:
+            v = value
             value = square(value) % modulo
-            print("\t " + str(step_counter) + "\t\t\t0\t\t\t-\t\t " + str(base))
+            print("\t " + str(step_counter) + "\t\t\t0\t\t" + str(v) + "^2 mod " + str(modulo) + " = " + str(value) + "\t\t\t\t\t  -")
         step_counter += 1
     print("\nFinal Value: " + str(value))
 
@@ -73,4 +80,4 @@ def multiply(value, base):
 
 
 if __name__ == '__main__':
-    square_and_multiply(12345, 6789, 143)
+    square_and_multiply(3, 5, 143)
