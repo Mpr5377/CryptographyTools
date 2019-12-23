@@ -4,6 +4,7 @@ Name: Matt Robinson
 Description: This file is going to just be a test to see if I can successful write a program to do SQR and MULT for me
 Language: Python
 """
+from time import time
 
 
 def square_and_multiply(base, exponent, modulo):
@@ -76,4 +77,4 @@ def multiply(value, base):
 
 
 if __name__ == '__main__':
-    square_and_multiply(37, 39, 730)
+    square_and_multiply(38, 39, 739)
