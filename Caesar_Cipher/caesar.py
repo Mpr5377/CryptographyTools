@@ -42,7 +42,7 @@ def decrypt_brute_force(ciphertext):
     :return: The plaintext that was decrypted
     """
     print(ciphertext)
-    for shift in range(1,27):
+    for shift in range(1,26):
         decrypted_string = ""
         for c in ciphertext:
             decrypted_string += chr(ord(c) - shift % 26)
